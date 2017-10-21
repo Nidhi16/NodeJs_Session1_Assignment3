@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- NodeJs_Session1_Assignment3. An IIFE program to validate form inputs and email id. -->
+<!-- NodeJs_Session1_Assignment3. An IIFE program to validate form inputs and email id using closures. -->
 <html>
   <head>
     <title></title>
@@ -28,7 +28,8 @@
             var email = document.getElementById('email').value;
             var phone = document.getElementById('phone').value;
             var address = document.getElementById('address').value;
-            
+
+            // A closure function which binds the variables name, email, phone, address
             var valueValidation = function() {
               // regular expression for email id check
               var re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
@@ -45,6 +46,7 @@
             }
             return valueValidation;
           })()();
+          // Second set of opening-closing bracket is for calling the closure
       });
     </script>
   </body>
