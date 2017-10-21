@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- NodeJs_Session1_Assignment3. An IIFE program to validate form inputs and email id. -->
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Enter your name: </label>
+      <input tyep="text" name="name" id="name"><br><br>
+      <label for="email">Enter an email address: </label>
+      <input type="text" name="email" id="email"><br><br>
+      <label for="phone">Enter Phone Number: </label>
+      <input type="text" name="phone" id="phone"><br><br>
+      <label for="address">Enter your address: </label>
+      <textarea name="address" id="address"></textarea>
+      <br><br>
+      <button type="button" id="form-validate-btn">Validate</button>
+    </form>
+    <!-- Internal JS -->
+    <script>
+      var formBtn = document.getElementById('form-validate-btn');
+      // addEventListener is the method which attaches an event handler to an element, so that we can do
+      // something useful when an event is triggered.
+      formBtn.addEventListener('click', function(){
+          (function (){
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+            
+            var valueValidation = function() {
+              // regular expression for email id check
+              var re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+              // checking for blank input values
+              if(name == "" || email == "" || phone == "" || address == "") {
+                alert("Field(s) should not be left blank. Please fill the required field(s)");
+              } else {
+                if (!re.test(email)) {
+                  alert("Please fill the correct email address");
+                } else {
+                  alert("Great!!! All fields are filled and email id is correct");
+                }
+              }
+            }
+            return valueValidation;
+          })()();
+      });
+    </script>
+  </body>
+</html>
